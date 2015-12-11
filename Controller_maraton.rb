@@ -5,13 +5,12 @@ class MainController
 	def initialize
 		@deck = Deck.new
 		@view = MainView.new
- 		@read_csv = read_csv
- 		@compare = compare
- 		start
+ 		@cards = read_csv
+ 		@compare = game
  	end
  	
  	def read_input
- 		input = gets.chomp
+ 		@view.user_input
  	end
 
  	def read_csv
@@ -34,10 +33,12 @@ class MainController
 		@view.game_over(counter_correct, counter_incorrect)
 	end
 
- 	def compare
+ 	def game
  		counter_correct = 0
  		counter_incorrect = 0
- 		@read_csv.each do |card|
+ 		start
+ 		read_input
+ 		@cards.each do |card|
  			question(card.question)
  			if read_input == card.answer
  				answer(true)  #p "correct"
@@ -51,4 +52,12 @@ class MainController
  	end
 end
 
+
+# Driver Code
 MainController.new
+
+
+
+
+
+
