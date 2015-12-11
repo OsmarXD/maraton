@@ -1,14 +1,54 @@
-relative_require "Model_maraton.rb"
-relative_require "View_maraton.rb"
+require_relative "Model_maraton.rb"
+require_relative "View_maraton.rb"
 
 class MainController
 	def initialize
-		
+		@deck = Deck.new
+		@view = MainView.new
+ 		@read_csv = read_csv
+ 		@compare = compare
+ 		start
+ 	end
+ 	
+ 	def read_input
+ 		input = gets.chomp
+ 	end
+
+ 	def read_csv
+ 		@deck.read_csv
+ 	end
+
+	def start
+		@view.start
 	end
 
-	def read_csv
-		
+	def question(card_question)
+		@view.question(card_question)
 	end
+
+	def answer(bool)
+		@view.answer(bool)
+	end
+
+	def game_over(counter_correct, counter_incorrect)
+		@view.game_over(counter_correct, counter_incorrect)
+	end
+
+ 	def compare
+ 		counter_correct = 0
+ 		counter_incorrect = 0
+ 		@read_csv.each do |card|
+ 			question(card.question)
+ 			if read_input == card.answer
+ 				answer(true)  #p "correct"
+ 				counter_correct += 1
+ 			else
+ 				answer(false)  #p "incorrect"
+ 				counter_incorrect += 1
+ 			end
+ 		end
+ 		game_over(counter_correct, counter_incorrect)
+ 	end
 end
 
 MainController.new
