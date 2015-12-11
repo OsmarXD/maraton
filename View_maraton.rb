@@ -2,18 +2,18 @@ class ViewMain
 	def start
 		puts "¡Bienvenido al maratón Jaguar!"
 		puts "Te daremos una pregunta y deberás adivinar la respuesta correcta."
-		puts "Listo?  Arranca el juego!"
+		puts "Listo? Arranca el juego!"
 	end
 
-	def question
+	def question(question)
 		
 	end
 
-	def attempt
+	def answer(answer)
 		
 	end
 
-	def answer
+	def attempt(attempt)
 		
 	end
 
