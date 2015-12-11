@@ -1,19 +1,22 @@
 class ViewMain
+
 	def start
 		puts "¡Bienvenido al maratón Jaguar!"
 		puts "Te daremos una pregunta y deberás adivinar la respuesta correcta."
-		puts "Listo?  Arranca el juego!"
+		puts "Listo? Arranca el juego!"
 	end
 
-	def question
-		
+	def question(question)
+		puts "#{question}"
+		gets.chomp
 	end
 
-	def attempt
-		
+	def answer(answer)
+		puts "Correct!"
+		puts "Incorrect :("
 	end
 
-	def answer
+	def attempt(attempt)
 		
 	end
 
